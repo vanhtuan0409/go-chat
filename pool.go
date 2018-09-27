@@ -32,11 +32,8 @@ func (p *ConnPool) Remove(conn *Conn) {
 }
 
 func (p *ConnPool) Broadcast(m *Message) {
+	log.Println("Broadcast message to all connection")
 	for _, conn := range p.connections {
-		if err := conn.WriteMessage(m); err != nil {
-			log.Printf("Encountered error while sending message to connection %s. ERR: %v\n", conn.Name, err)
-		} else {
-			log.Printf("Successfully sent message to connection %s\n", conn.Name)
-		}
+		conn.WriteMessage(m)
 	}
 }
