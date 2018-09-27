@@ -57,8 +57,6 @@ func (s *Server) Shutdown() {
 
 func (s *Server) handle(tcpConn net.Conn) {
 	log.Println("There is a new connection")
-	tcpConn.Close()
-	return
 
 	// Parse connection
 	conn, err := ParseConn(tcpConn)
