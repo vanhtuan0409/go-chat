@@ -32,7 +32,7 @@ func ParseConn(conn net.Conn) (*Conn, error) {
 	}
 
 	return &Conn{
-		Name:   strings.Trim(name, "\n\t "),
+		Name:   strings.Trim(name, "\r\n\t "),
 		conn:   conn,
 		reader: reader,
 	}, nil

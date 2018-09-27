@@ -35,7 +35,7 @@ func (c *Client) Connect() error {
 		return err
 	}
 
-	go io.Copy(os.Stdin, conn)
-	io.Copy(conn, os.Stdin)
+	go io.Copy(conn, os.Stdout)
+	io.Copy(os.Stdin, conn)
 	return nil
 }
